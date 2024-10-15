@@ -1,5 +1,7 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Models;
-//abstract : plantixa, index de herencia
+//abstract : plantilla, index de herencia
 public abstract class Producto 
 {
     public string Nombre {get;set;}
@@ -12,4 +14,7 @@ public abstract class Producto
 
     public abstract void MostrarDetalles();
 
+
+
 }
+
