@@ -3,13 +3,19 @@ using Models;
 public class Postre : Producto {
 
     public int Calorias {get;set;}
-    public bool ConAzucar {get;set;}
+    public bool ConAzucar {get;set;} = true;
+    public bool ConGluten {get;set;}  = false;
 
-public Postre(string nombre, double precio, int calorias): base(nombre, precio) {
+
+//constructores
+public Postre(string nombre, double precio, int calorias, bool conAzucar, bool conGluten): base(nombre, precio) {
    Calorias = calorias;
+   ConAzucar = conAzucar;
 }
 
     public override void MostrarDetalles() {
-        Console.WriteLine($"Postre: {Nombre}, Precio {Precio:C}, Calorías {Calorias} ");
+        string llevaAzucar = ConAzucar ? "Si" : "No";
+        string llevaGluten = ConGluten ? "Si" : "No";
+        Console.WriteLine($"Postre: {Nombre}, Precio {Precio:C}, Calorías {Calorias}, ¿Lleva Azúcar? {llevaAzucar}, ¿Lleva Gluten? {llevaGluten}");
     }
 }

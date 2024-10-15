@@ -93,8 +93,13 @@ class MenuApp
         double precio = double.Parse(Console.ReadLine());
         Console.WriteLine("Calorías:");
         int calorias = int.Parse(Console.ReadLine());
+           Console.WriteLine("Con azúcar:");
+        bool conAzucar = bool.Parse(Console.ReadLine());
+             Console.WriteLine("Con gluten:");
+        bool conGluten = bool.Parse(Console.ReadLine());
 
-        Postre postre = new Postre(nombre, precio, calorias);
+
+        Postre postre = new Postre(nombre, precio, calorias, conAzucar, conGluten);
         pedido.AnadirProductos(postre);
     }
 }

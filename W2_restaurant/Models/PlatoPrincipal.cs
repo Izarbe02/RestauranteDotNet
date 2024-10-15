@@ -4,6 +4,7 @@ using Models;
 public class PlatoPrincipal : Producto {
 
     public string Ingredientes {get;set;}
+//constructor añadiendo de base (padre) dos propiedades: precio y  nombre
 
 public PlatoPrincipal(string nombre, double precio, string ingredientes): base(nombre, precio) {
    Ingredientes = ingredientes;
