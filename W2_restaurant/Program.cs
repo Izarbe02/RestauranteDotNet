@@ -1,17 +1,17 @@
 ﻿
 using Models;
 
-var plato = new PlatoPrincipal("Plato combinado", 12.50, "Pollo, patatas, tomate");
-plato.MostrarDetalles();
+var platoPrincipal = new PlatoPrincipal("Plato combinado", 12.50, "Pollo, patatas, tomate");
+platoPrincipal.MostrarDetalles();
 
-var bebida = new Bebida("Limonada", 1.50, false);
+var bebida = new Bebida("Segarro", 1.50, false);
 bebida.MostrarDetalles();
 
-var postre = new Postre("Tiramisú", 7.00, 800);
+var postre = new Postre("Tiramisú", 7.00, 800, true, true);
 postre.MostrarDetalles();
 
 var pedido = new Pedido();
-pedido.AnadirProductos(plato);
+pedido.AnadirProductos(platoPrincipal);
 pedido.AnadirProductos(bebida);
 pedido.AnadirProductos(postre);
 
@@ -20,7 +20,7 @@ pedido.AnadirProductos(postre);
 var total = pedido.CalcularTotal();
 Console.WriteLine($"Total pedido: {total}");
 
-var combo = new Combo(plato,bebida,postre,0.10);
+var combo = new Combo(platoPrincipal,bebida,postre,0.10);
 combo.MostrarDetalles();
 
 
