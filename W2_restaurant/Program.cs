@@ -24,10 +24,15 @@ var combo = new Combo(platoPrincipal,bebida,postre,0.10);
 combo.MostrarDetalles();
 
 
-pedido.AnadirProductos(combo,3);
+pedido.AnadirProductos(combo);
 pedido.MostrarPedido();
 var totalConCantidad = pedido.CalcularTotal();
-Console.WriteLine($"Total pedido: {totalConCantidad}");
+//var  totalConIva = pedido.CalcularTotalConIva();
+
+Console.WriteLine($"Total pedido: {totalConCantidad} ");
+//Console.WriteLine($"Total con IVA {totalConIva}");
+
+ 
 
 
 

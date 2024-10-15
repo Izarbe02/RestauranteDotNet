@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Models;
 
 public class Combo : Producto {
@@ -7,19 +8,22 @@ public class Combo : Producto {
     public Postre Postre {get;set;}
     public double Descuento {get;set;} //0.10 para 10% descuento
 
-public Combo(PlatoPrincipal platoPrincipal, Bebida bebida, Postre postre, double descuento): base("Combo especial", 0) {
+   public Combo(PlatoPrincipal platoPrincipal, Bebida bebida, Postre postre, double descuento): base("Combo especial", 0) {
    PlatoPrincipal = platoPrincipal;
    Bebida = bebida;
    Postre = postre;
    Descuento = descuento;
-   Precio = CalcularPrecio();
-}
+   Precio = CalcularPrecio();// constructor a funcion!! // se deriva a funcion poara reciclar codigo
 
+
+}
+//funcion  para calcular el precio del combo
  private double CalcularPrecio() {
     double precio = PlatoPrincipal.Precio + Bebida.Precio + Postre.Precio;
     double precioConDescuento =  precio * (1 - Descuento);
     return precioConDescuento;
  }
+
 
     public override void MostrarDetalles() {
          Console.WriteLine("\n-------Combo------");

@@ -1,3 +1,4 @@
+//using: gestionar ficheros segun utilidad. Modelos, utilidades...
 using Models;
 
 class MenuApp
@@ -22,7 +23,7 @@ class MenuApp
             Console.WriteLine("4. Mostrar Pedido");
             Console.WriteLine("5. Calcular Total y Salir");
             Console.WriteLine("Selecciona una opción:");
-
+    //parsear 
             if (!int.TryParse(Console.ReadLine(), out opcion) || opcion < 1 || opcion > 5)
             {
                 Console.WriteLine("Error: Por favor selecciona una opción válida (1-5).");

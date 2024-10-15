@@ -1,33 +1,55 @@
+using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
+
 namespace Models;
 
-class Pedido {
-//private List<Producto> productos;
-private List<(Producto, int)> productos; //tupla de Producto (item1) y cantidad (item2)
-//Investiga las diferencias entre tupla y diccionario
+class Pedido //entidad por si sola
+{
+    private List<Producto> productos;
 
-public Pedido() {
-    productos = new List<(Producto,int)>();
-}
+    public Pedido()
+    {
+        //inicializar variable producto
+        productos = new List<Producto>();
 
-public void AnadirProductos(Producto producto, int cantidad = 1) {
-    productos.Add((producto,cantidad));
-    Console.WriteLine($"Producto añadido: {producto.Nombre}");
-}
-
-public void MostrarPedido() {
-    Console.WriteLine("\n-------Pedido------");
-    foreach (var producto in productos) {
-        producto.Item1.MostrarDetalles();
-        Console.WriteLine($"Cantidad: {producto.Item2}");
     }
-}
 
-public double CalcularTotal() {
-    double total = 0;
-    foreach (var producto in productos) {
-        total += producto.Item1.Precio * producto.Item2;
+    public void AnadirProductos(Producto producto)
+    {
+        productos.Add(producto);
+        Console.WriteLine($"Producto añadido: {producto.Nombre}");
     }
-    return total;
+    public void MostrarPedido()
+    {
+        foreach (var Producto in productos)
+        {
+            Producto.MostrarDetalles();
+        }
+    }
+    public double CalcularTotal()
+    {
+        double total = 0;
+        foreach (var producto in productos)
+        {
+            total += producto.Precio;
+        }
+        return total;
+    }
+    //hay que pasar  el tipo de dato que se va a utilizar, en este 
+
+    public double CalcularIva(double porcentajeIva)
+        {
+            double total = CalcularTotal();
+            double iva = total * (porcentajeIva / 100);
+            return iva;
+        }
+
+        // Método para calcular el total incluyendo IVA
+        public double CalcularTotalConIva(double porcentajeIva)
+        {
+            double total = CalcularTotal();
+            double iva = CalcularIva(porcentajeIva);
+            return total + iva;
+        }
 }
 
-}
